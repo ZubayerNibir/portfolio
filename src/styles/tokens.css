@@ -1,0 +1,79 @@
+/* ============================================================================
+   DESIGN TOKENS — the single source of truth for the whole site.
+   Components NEVER hard-code colors, sizes, or timings. They use var(--token).
+   If you (or an AI agent) want to re-theme the site, change values HERE only.
+   ============================================================================ */
+
+:root {
+  /* ---- COLOR ---------------------------------------------------------------
+     Near-black base + one warm amber accent + a "bone" off-white for text.   */
+  --bg:            #0A0A0C;   /* page background (near-black)                  */
+  --bg-elev:       #111115;   /* cards / elevated surfaces                     */
+  --bg-elev-2:     #17171c;   /* hover / nested surfaces                       */
+  --line:          rgba(242, 240, 233, 0.10);  /* hairline borders            */
+  --line-strong:   rgba(242, 240, 233, 0.20);
+
+  --text:          #F2F0E9;   /* primary text (bone)                          */
+  --text-dim:      rgba(242, 240, 233, 0.64);   /* secondary text             */
+  --text-faint:    rgba(242, 240, 233, 0.42);   /* captions / labels          */
+
+  --accent:        #E8B04B;   /* warm amber — the ONE accent                  */
+  --accent-strong: #F4C168;   /* amber on hover                               */
+  --accent-soft:   rgba(232, 176, 75, 0.12);    /* amber wash / fills         */
+  --accent-line:   rgba(232, 176, 75, 0.40);    /* amber borders              */
+  --on-accent:     #0A0A0C;   /* text that sits ON an amber fill              */
+
+  /* ---- TYPEFACES -----------------------------------------------------------
+     One display serif (Fraunces) + one clean sans (Inter). Self-hosted.      */
+  --font-serif: 'Fraunces Variable', 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* ---- TYPE SCALE (fluid: scales smoothly between mobile and desktop) ------ */
+  --fs-display: clamp(2.75rem, 8.5vw, 6.5rem);   /* hero serif line           */
+  --fs-h2:      clamp(1.9rem, 4.8vw, 3.25rem);   /* section headings          */
+  --fs-h3:      clamp(1.25rem, 2.6vw, 1.75rem);  /* card titles               */
+  --fs-lead:    clamp(1.05rem, 2.1vw, 1.4rem);   /* lead paragraphs           */
+  --fs-body:    1.0625rem;                        /* body copy (17px)          */
+  --fs-small:   0.9375rem;                        /* small text (15px)         */
+  --fs-label:   0.75rem;                          /* eyebrows / labels (12px)  */
+
+  --lh-tight:   1.04;
+  --lh-snug:    1.2;
+  --lh-body:    1.62;
+  --tracking-label: 0.18em;   /* letter-spacing for uppercase labels          */
+
+  /* ---- SPACING (8px rhythm) ------------------------------------------------ */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+  --space-8: 8rem;
+  --section-y: clamp(4.5rem, 11vw, 9rem);  /* vertical padding between sections */
+
+  /* ---- LAYOUT -------------------------------------------------------------- */
+  --container:    72rem;     /* max content width (1152px)                     */
+  --container-narrow: 46rem; /* readable text column (736px)                   */
+  --gutter:       clamp(1.25rem, 5vw, 2.5rem);   /* left/right page padding    */
+  --radius:       14px;
+  --radius-lg:    22px;
+  --radius-pill:  999px;
+
+  /* ---- MOTION --------------------------------------------------------------
+     Restrained durations + custom easing. Used by both CSS and GSAP.         */
+  --ease-out:    cubic-bezier(0.16, 1, 0.30, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 0.4s;
+  --dur-2: 0.6s;
+  --dur-3: 0.9s;
+
+  /* ---- ELEVATION ----------------------------------------------------------- */
+  --shadow-card: 0 1px 0 rgba(242,240,233,0.04) inset,
+                 0 20px 50px -30px rgba(0,0,0,0.9);
+  --glow-accent: 0 0 50px -12px rgba(232, 176, 75, 0.45);
+
+  --z-nav: 100;
+  --z-overlay: 200;
+}

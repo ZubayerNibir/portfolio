@@ -1,0 +1,199 @@
+/* ============================================================================
+   GLOBAL STYLES — reset, base typography, shared primitives (container,
+   section, buttons, reveal helpers). All values come from tokens.css.
+   ============================================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: auto; /* Lenis handles smooth scroll; native would conflict */
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Skip link for keyboard users — first focusable element on the page. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: var(--z-overlay);
+  background: var(--accent);
+  color: var(--on-accent);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 var(--radius) 0;
+  font-weight: 600;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ---- LAYOUT PRIMITIVES ---------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+/* Offset anchor jumps so the fixed nav doesn't cover section headings. */
+section[id],
+main[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* ---- TYPOGRAPHY HELPERS --------------------------------------------------- */
+.eyebrow {
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+/* ---- BUTTONS -------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.5rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: var(--fs-small);
+  line-height: 1;
+  transition: transform var(--dur-1) var(--ease-out),
+    background-color var(--dur-1) var(--ease-out),
+    border-color var(--dur-1) var(--ease-out), color var(--dur-1) var(--ease-out);
+  will-change: transform;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: var(--glow-accent);
+}
+.btn--primary:hover {
+  background: var(--accent-strong);
+}
+
+.btn--ghost {
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+}
+.btn--ghost:hover {
+  border-color: var(--accent-line);
+  color: var(--accent);
+}
+
+.btn__arrow {
+  transition: transform var(--dur-1) var(--ease-out);
+}
+.btn:hover .btn__arrow {
+  transform: translateX(3px);
+}
+
+/* ---- SCROLL-REVEAL helpers ------------------------------------------------
+   Progressive enhancement: elements with [data-reveal] are FULLY VISIBLE by
+   default. Only when JS runs AND motion is allowed does it set the hidden
+   start-state (in a layout effect, before paint) and animate them in.
+   => If JS fails or motion is reduced, nothing is ever hidden. */
+[data-reveal] {
+  will-change: opacity, transform;
+}
+
+/* ============================================================================
+   REDUCED MOTION — complete path. Disables Lenis-driven smoothness expectation,
+   reveals everything immediately, and neutralizes transitions/animations.
+   The JS also reads this preference and skips GSAP entirely.
+   ============================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

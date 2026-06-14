@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+
+# logs
+npm-debug.log*
+*.log
+
+# editor / OS
+.DS_Store
+.vscode/
+.idea/
+Thumbs.db
+
+# env
+.env
+.env.local
+
+# RAW video sources — never commit heavy raw renders.
+# Only the web-compressed files in /public/video are tracked.
+*.mov
+*.mxf
+/raw-video/
