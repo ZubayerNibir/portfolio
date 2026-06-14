@@ -1,0 +1,75 @@
+.contact {
+  position: relative;
+}
+/* A quiet amber wash to lift the conversion section off the page. */
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    60% 80% at 50% 0%,
+    var(--accent-soft),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.contact__inner {
+  position: relative;
+  max-width: var(--container-narrow);
+  text-align: center;
+}
+.contact__inner .eyebrow {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.contact__title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.015em;
+  max-width: 18ch;
+  margin-inline: auto;
+}
+
+.contact__sub {
+  margin-top: var(--space-3);
+  margin-inline: auto;
+  max-width: 48ch;
+  color: var(--text-dim);
+  font-size: var(--fs-lead);
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin-top: var(--space-5);
+}
+
+.contact__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2) var(--space-5);
+  margin-top: var(--space-6);
+  color: var(--text-dim);
+  font-size: var(--fs-small);
+}
+.contact__meta li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.contact__meta-label {
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.contact__meta a:hover {
+  color: var(--accent);
+}
