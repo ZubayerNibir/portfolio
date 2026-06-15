@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Single-page site. Update <loc> to your real domain after deploying. -->
+<!-- Single-page site. Update <loc> if you move to a custom domain. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://talhazubayer.com/</loc>
+    <loc>https://portfolio.domainnibir.workers.dev/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>

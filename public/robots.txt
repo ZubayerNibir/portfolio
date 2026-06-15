@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# Update this URL to your real domain after deploying.
-Sitemap: https://talhazubayer.com/sitemap.xml
+# Update this URL if you move to a custom domain.
+Sitemap: https://portfolio.domainnibir.workers.dev/sitemap.xml
