@@ -1,0 +1,13 @@
+{
+  // Tells Cloudflare to deploy this as a STATIC SITE (serve the built `dist`
+  // folder), instead of trying to auto-configure a Vite app. This is what makes
+  // `npx wrangler deploy` succeed on Cloudflare's build pipeline.
+  // You normally never need to touch this file.
+  "name": "portfolio",
+  "compatibility_date": "2025-01-01",
+  "assets": {
+    "directory": "./dist",
+    // Serve index.html for any unknown path (safe for a single-page site).
+    "not_found_handling": "single-page-application"
+  }
+}
